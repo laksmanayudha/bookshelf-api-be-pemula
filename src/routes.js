@@ -1,10 +1,14 @@
 const handler = require('./handler');
+const validator = require('./validator');
 
 const routes = [
   {
     method: 'POST',
     path: '/books',
-    handler: handler.storeBook,
+    handler: handler.addBook,
+    options: {
+      validate: validator.addBookValidator
+    }
   },
   {
     method: 'GET',
