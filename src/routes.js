@@ -24,6 +24,9 @@ const routes = [
     method: 'PUT',
     path: '/books/{id}',
     handler: handler.updateBook,
+    options: {
+      validate: validator.updateBookValidator
+    }
   },
   {
     method: 'DELETE',
