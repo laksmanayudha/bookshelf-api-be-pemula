@@ -28,12 +28,11 @@ const addBook = (request, h) => {
 
 const getAllBook = (request, h) => {
   try {
-    // get all book
-    const books = Book.all().map(({ id, name, publisher }) => ({
-      id,
-      name,
-      publisher
-    }));
+    const { name, reading, finished } = request.query;
+
+    const books = Book
+      .where({ name, reading, finished })
+      .map(({ id, name, publisher }) => ({ id, name, publisher }));
 
     return h.response({
       status: 'success',

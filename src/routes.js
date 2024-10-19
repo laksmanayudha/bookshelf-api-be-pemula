@@ -14,6 +14,9 @@ const routes = [
     method: 'GET',
     path: '/books',
     handler: handler.getAllBook,
+    options: {
+      validate: validator.getAllBookValidator
+    }
   },
   {
     method: 'GET',

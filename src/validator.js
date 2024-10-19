@@ -7,6 +7,14 @@ const clientErrorResponse = (request, h, err) => {
   }).code(400).takeover();
 };
 
+const getAllBookValidator = {
+  query: Joi.object({
+    name: Joi.string(),
+    reading: Joi.number().min(0).max(1),
+    finished: Joi.number().min(0).max(1),
+  }),
+};
+
 const addBookValidator = {
   payload: Joi.object({
     name: Joi.string()
@@ -61,4 +69,4 @@ const updateBookValidator = {
   failAction: clientErrorResponse
 };
 
-module.exports = { addBookValidator, updateBookValidator };
+module.exports = { addBookValidator, updateBookValidator, getAllBookValidator };
