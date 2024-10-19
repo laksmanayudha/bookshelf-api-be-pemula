@@ -5,7 +5,7 @@ const clientErrorResponse = (request, h, err) => {
     status: 'fail',
     message: err.message
   }).code(400).takeover();
-}
+};
 
 const addBookValidator = {
   payload: Joi.object({
@@ -32,7 +32,7 @@ const addBookValidator = {
     reading: Joi.boolean().required()
   }),
   failAction: clientErrorResponse
-}
+};
 
 const updateBookValidator = {
   payload: Joi.object({
@@ -59,6 +59,6 @@ const updateBookValidator = {
     reading: Joi.boolean().required()
   }),
   failAction: clientErrorResponse
-}
+};
 
 module.exports = { addBookValidator, updateBookValidator };

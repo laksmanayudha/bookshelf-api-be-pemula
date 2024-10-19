@@ -24,7 +24,7 @@ const addBook = (request, h) => {
       message: error.message,
     }).code(500);
   }
-}
+};
 
 const getAllBook = (request, h) => {
   try {
@@ -45,7 +45,7 @@ const getAllBook = (request, h) => {
       message: error.message,
     }).code(500);
   }
-}
+};
 
 const getBookDetail = (request, h) => {
   try {
@@ -73,7 +73,7 @@ const getBookDetail = (request, h) => {
       message: error.message,
     }).code(500);
   }
-}
+};
 
 const updateBook = (request, h) => {
   try {
@@ -82,7 +82,7 @@ const updateBook = (request, h) => {
 
     // check if book is exists
     if (!Book.exists(id))
-        throw new ClientError('Gagal memperbarui buku. Id tidak ditemukan', 404);
+      throw new ClientError('Gagal memperbarui buku. Id tidak ditemukan', 404);
 
     // update the new book data
     Book.update(id, payload);
@@ -104,7 +104,7 @@ const updateBook = (request, h) => {
       message: error.message,
     }).code(500);
   }
-}
+};
 
 const deleteBook = (request, h) => {
   try {
@@ -112,7 +112,7 @@ const deleteBook = (request, h) => {
 
     // check if book is exists
     if (!Book.exists(id))
-        throw new ClientError('Buku gagal dihapus. Id tidak ditemukan', 404);
+      throw new ClientError('Buku gagal dihapus. Id tidak ditemukan', 404);
 
     // delete the book data
     Book.delete(id);
@@ -134,7 +134,7 @@ const deleteBook = (request, h) => {
       message: error.message,
     }).code(500);
   }
-}
+};
 
 module.exports = {
   addBook,

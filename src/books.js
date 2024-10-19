@@ -4,11 +4,11 @@ const { timestamp } = require('./helper');
 const Book = {
   data: [],
   all() {
-    return this.data
+    return this.data;
   },
   detail(id) {
     const book = this.data.find((book) => book.id === id);
-    return book ? {...book} : null;
+    return book ? { ...book } : null;
   },
   exists(id) {
     const book = this.data.find((book) => book.id === id);
@@ -22,7 +22,8 @@ const Book = {
       id,
       insertedAt: currentTime,
       updatedAt: currentTime
-    }
+    };
+
     this.data = [...this.data, newBook];
 
     if (!this.exists(id)) throw new Error('Terjadi kesalahan saat menambahkan ke database');
@@ -33,7 +34,11 @@ const Book = {
     let newBook = null;
     this.data = this.data.map((book) => {
       if (book.id === id) {
-        newBook = {...book, ...updatedBook};
+        newBook = {
+          ...book,
+          ...updatedBook,
+          updatedAt: timestamp()
+        };
         return newBook;
       }
       return book;
